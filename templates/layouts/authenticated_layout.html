@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="buttonLogout">Log Out</button>
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% block content %}
+  {% endblock content %}
+
+  <script>
+    var buttonLogout = document.getElementById('buttonLogout');
+    var csrftoken = getCookie('csrftoken');
+
+    buttonLogout.addEventListener('click', function (event) {
+      fetch("{% url 'session' %}", {
+        method: 'DELETE',
+        headers: {
+          'X-CSRFToken': csrftoken
+        }
+      })
+      .then(function(response) {
+        window.location.href = '/sessions/'
+      })
+    });
+
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+  </script>
+</body>
+</html>

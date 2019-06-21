@@ -1,0 +1,2 @@
+from users.views.customer_registration_view import CustomerRegistrationView
+from users.views.session_view import SessionView

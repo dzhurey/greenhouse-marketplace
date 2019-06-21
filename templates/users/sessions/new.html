@@ -1,7 +1,7 @@
 {% extends 'layouts/base_layout.html' %}
 
 {% block content %}
-<form action="{% url 'customer_registration' %}" method="post">
+<form action="{% url 'session' %}" method="post">
     {% csrf_token %}
     {% for field in form %}
         <div class="form-group">
@@ -15,4 +15,3 @@
     <input type="submit"></input>
 </form>
 {% endblock %}
-
