@@ -2,4 +2,24 @@
 
 {% block content %}
 <h4>Ini halaman dashboard Customer</h4>
+</br>
+<h5>Daftar vendor</h5>
+<table>
+  <thead>
+    <tr>
+      <td>Nama</td>
+      <td>Kategori</td>
+      <td>Jumlah Employee</td>
+    </tr>
+  </thead>
+  <tbody>
+  {% for vendor in vendors %}
+    <tr>
+      <td>{{ vendor.name }}</td>
+      <td>Kategori</td>
+      <td>Jumlah Employee</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
