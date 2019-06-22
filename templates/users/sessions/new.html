@@ -1,6 +1,8 @@
 {% extends 'layouts/base_layout.html' %}
 
 {% block content %}
+<a href="{% url 'customer_registration' %}">Sign Up as Customer</a>
+<a href="{% url 'vendor_registration' %}">Sign Up as Vendor</a>
 <form action="{% url 'session' %}" method="post">
     {% csrf_token %}
     {% for field in form %}

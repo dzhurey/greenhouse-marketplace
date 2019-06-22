@@ -1,0 +1,1 @@
+from vendors.views.dashboard_views import DashboardView

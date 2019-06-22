@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from users.forms import SessionForm
 from customers.models import Customer
+from vendors.models import Vendor
 
 class SessionView(View):
     form_class = SessionForm
@@ -18,7 +19,6 @@ class SessionView(View):
 
         if form.is_valid():
             user, user_type = self.authenticate_user(request, form.get_credentials())
-
         if user is not None:
             return redirect("{}_dashboard".format(user_type))
 
@@ -36,6 +36,9 @@ class SessionView(View):
         if user is not None:
             user_object = Customer.objects.filter(user=user).first()
             user_type = 'customer'
+            if user_object is None:
+                user_object = Vendor.objects.filter(user=user).first()
+                user_type = 'vendor'
             if user_object:
                 login(request, user)
 

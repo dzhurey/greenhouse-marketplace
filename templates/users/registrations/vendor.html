@@ -2,8 +2,8 @@
 
 {% block content %}
 <a href="{% url 'session' %}">Sudah punya akun, login!</a>
-<h4>Register as Customer</h4>
-<form action="{% url 'customer_registration' %}" method="post">
+<h4>Register as Vendor</h4>
+<form action="{% url 'vendor_registration' %}" method="post">
     {% csrf_token %}
     {% for field in form %}
         <div class="form-group">
