@@ -6,7 +6,7 @@ This apps developed by using stacks:
 
 - Python 3.7
 - Django 2.2
-- SQLite
+- PostgreSQL
 
 ## 2. Installation
 
@@ -16,15 +16,17 @@ This apps developed by using stacks:
 
 ```pip install -r requirements.txt```
 
-3. migrate migrations by run
+3. create DB with name `greenhouse_db` on your postgres or you can setup different DB with modify `DATABASES` on `settings.py`
+
+4. migrate migrations by run
 
 ```python manage.py migrate```
 
-4. create your admin user by run
+5. create your admin user by run
 
 ```python manage.py createsuperuser```
 
-5. run local server by run
+6. run local server by run
 
 ```python manage.py runserver```
 
