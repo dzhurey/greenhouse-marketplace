@@ -1,0 +1,37 @@
+{% extends 'layouts/vendor_layout.html' %}
+
+{% block section %}
+<h4>Profile</h4>
+<form action="{% url 'vendor_profile' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form.name.errors }}
+        {{ form.name.label_tag }} {{ form.name }}
+        {% if form.name.help_text %}
+        <p class="help">{{ form.name.help_text|safe }}</p>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.phone.errors }}
+        {{ form.phone.label_tag }} {{ form.phone }}
+        {% if form.phone.help_text %}
+        <p class="help">{{ form.phone.help_text|safe }}</p>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.number_of_employee.errors }}
+        {{ form.number_of_employee.label_tag }} {{ form.number_of_employee }}
+        {% if form.number_of_employee.help_text %}
+        <p class="help">{{ form.number_of_employee.help_text|safe }}</p>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.vendor_categories.errors }}
+        {{ form.vendor_categories.label_tag }} {{ form.vendor_categories }}
+        {% if form.vendor_categories.help_text %}
+        <p class="help">{{ form.vendor_categories.help_text|safe }}</p>
+        {% endif %}
+    </div>
+    <input type="submit"></input>
+</form>
+{% endblock %}

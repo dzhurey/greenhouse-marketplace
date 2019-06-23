@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from users.views import CustomerRegistrationView, VendorRegistrationView, SessionView
 from customers.views import DashboardView as CustomerDashboardView
-from vendors.views import DashboardView as VendorDashboardView
+from vendors.views import DashboardView as VendorDashboardView, ProfileView as VendorProfileView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +26,5 @@ urlpatterns = [
     path('sessions/', SessionView.as_view(), name='session'),
     path('customers/dashboards/', CustomerDashboardView.as_view(), name='customer_dashboard'),
     path('vendors/dashboards/', VendorDashboardView.as_view(), name='vendor_dashboard'),
+    path('vendors/profiles/', VendorProfileView.as_view(), name='vendor_profile'),
 ]
