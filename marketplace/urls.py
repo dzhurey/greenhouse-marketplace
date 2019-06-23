@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from users.views import CustomerRegistrationView, VendorRegistrationView, SessionView
-from customers.views import DashboardView as CustomerDashboardView
+from customers.views import DashboardView as CustomerDashboardView, ProfileView as CustomerProfileView
 from vendors.views import DashboardView as VendorDashboardView, ProfileView as VendorProfileView
 
 urlpatterns = [
@@ -26,5 +26,6 @@ urlpatterns = [
     path('sessions/', SessionView.as_view(), name='session'),
     path('customers/dashboards/', CustomerDashboardView.as_view(), name='customer_dashboard'),
     path('vendors/dashboards/', VendorDashboardView.as_view(), name='vendor_dashboard'),
+    path('customers/profiles/', CustomerProfileView.as_view(), name='customer_profile'),
     path('vendors/profiles/', VendorProfileView.as_view(), name='vendor_profile'),
 ]

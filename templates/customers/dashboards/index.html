@@ -1,6 +1,6 @@
-{% extends 'layouts/authenticated_layout.html' %}
+{% extends 'layouts/customer_layout.html' %}
 
-{% block content %}
+{% block section %}
 <h4>Ini halaman dashboard Customer</h4>
 </br>
 <h5>Daftar vendor</h5>
@@ -8,16 +8,16 @@
   <thead>
     <tr>
       <td>Nama</td>
-      <td>Kategori</td>
       <td>Jumlah Employee</td>
+      <td>Kategori</td>
     </tr>
   </thead>
   <tbody>
   {% for vendor in vendors %}
     <tr>
       <td>{{ vendor.name }}</td>
-      <td>Kategori</td>
-      <td>Jumlah Employee</td>
+      <td>{{ vendor.number_of_employee }}</td>
+      <td>{{ vendor.tag_names }}</td>
     </tr>
   {% endfor %}
   </tbody>

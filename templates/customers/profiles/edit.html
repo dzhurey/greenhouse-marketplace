@@ -1,0 +1,24 @@
+
+{% extends 'layouts/customer_layout.html' %}
+
+{% block section %}
+<h4>Profile</h4>
+<form action="{% url 'customer_profile' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form.name.errors }}
+        {{ form.name.label_tag }} {{ form.name }}
+        {% if form.name.help_text %}
+        <p class="help">{{ form.name.help_text|safe }}</p>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.phone.errors }}
+        {{ form.phone.label_tag }} {{ form.phone }}
+        {% if form.phone.help_text %}
+        <p class="help">{{ form.phone.help_text|safe }}</p>
+        {% endif %}
+    </div>
+    <input type="submit"></input>
+</form>
+{% endblock %}
