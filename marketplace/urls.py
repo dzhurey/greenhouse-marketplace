@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('registrations/customers/', CustomerRegistrationView.as_view(), name='customer_registration'),
     path('registrations/vendors/', VendorRegistrationView.as_view(), name='vendor_registration'),
-    path('sessions/', SessionView.as_view(), name='session'),
+    path('', SessionView.as_view(), name='session'),
     path('customers/dashboards/', CustomerDashboardView.as_view(), name='customer_dashboard'),
     path('vendors/dashboards/', VendorDashboardView.as_view(), name='vendor_dashboard'),
     path('customers/profiles/', CustomerProfileView.as_view(), name='customer_profile'),
